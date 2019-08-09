@@ -1,11 +1,14 @@
 <script>
-	export let name;
+  import Todo from "./Todo.svelte";
 </script>
 
-<style>
-	h1 {
-		color: purple;
-	}
+<style lang="scss">
+  .todo-container {
+    display: flex;
+    align-items: center;
+  }
 </style>
 
-<h1>Hello {name}!</h1>
+<div class="todo-container">
+  <Todo />
+</div>

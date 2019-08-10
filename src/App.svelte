@@ -1,5 +1,6 @@
 <script>
-  import Todo from "./Todo.svelte";
+  import Todos from "./components/Todos.svelte";
+  import Form from "./components/Form.svelte";
 
   let todos = [
     { id: 1, todo: "learn svelte" },
@@ -10,13 +11,14 @@
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(todo);
     todos = [...todos, { id: Math.random(), todo: todo }];
+    todo = "";
   };
 </script>
 
-<style lang="scss">
+<style>
   .todo-container {
+    padding: 1rem;
   }
 </style>
 
@@ -27,9 +29,5 @@
       <input type="text" bind:value={todo} />
     </label>
   </form>
-  <ul>
-    {#each todos as { id, todo }}
-      <li>{todo}</li>
-    {/each}
-  </ul>
+  <Todos {todos} />
 </div>
